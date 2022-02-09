@@ -9,6 +9,11 @@ const pool = new Pool({
   port: 5432,
   database: "lightbnb",
 });
+
+pool.connect((err) => {
+  if (err) return console.log(err) // Shows error if something happened
+});
+
 /// Users
 
 /**
@@ -82,7 +87,6 @@ exports.getAllReservations = getAllReservations;
       console.log(err.message);
     });
 };
-
 exports.getAllProperties = getAllProperties;
 
 
